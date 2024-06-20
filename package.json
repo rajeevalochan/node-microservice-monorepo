@@ -1,0 +1,17 @@
+{
+  "name": "microservices-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "services/auth-service",
+    "services/profile-service"
+  ],
+  "scripts": {
+    "start:auth": "npm run start --workspace=auth-service",
+    "start:profile": "npm run start --workspace=profile-service",
+    "start": "concurrently \"npm run start:auth\" \"npm run start:profile\""
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0"
+  }
+}
